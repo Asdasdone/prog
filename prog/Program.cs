@@ -12,9 +12,19 @@ namespace prog
         {
             string[] tomb = new string[]{ "kő", "papír", "olló" };
             Random rnd = new Random();
-            string robotval = tomb[rnd.Next(0, 3)];
-            //Console.WriteLine("Gép választása: {0}",robotval);
-            string jatekosv = "";
+            int robotval = rnd.Next(0, 3);
+            //Console.WriteLine("Gép választása: {0}",tomb[robotval]);
+            Console.WriteLine("Válasszon: (1)Kő (2)Papír (3)Olló");
+            int jatekosv = int.Parse(Console.ReadLine())-1;
+            Console.WriteLine("Játékos választása: {0}",tomb[jatekosv]);
+            switch (robotval)
+            {
+                case 1:;break;
+                case 2:;break;
+                case 3:;break;
+                default:
+                    break;
+            }
 
             Console.ReadKey();
         }
