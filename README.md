@@ -1,3 +1,3 @@
 # prog
 hehe program
-játék
+kő papír olló
