@@ -8,6 +8,7 @@ namespace prog
 {
     class Program
     {
+        static string[] tomb = new string[] { "kő", "papír", "olló" };
         static int embernyer(int a,int b)
         {
             //a=robot , b=ember
@@ -30,67 +31,18 @@ namespace prog
         static void kiír(int a,int b)
         {
             string[] asd = new string[] { "Döntetlen", "Vesztettél", "Nyertél" };
-            string[] tomb = new string[] { "kő", "papír", "olló" };
+            Console.WriteLine("Játékos választása: {0}", tomb[b]);
             Console.WriteLine("Robot válasza \t Játékos válasza");
             Console.WriteLine("  {0} \t" + asd[embernyer(a, b)] + " \t{1}", tomb[a], tomb[b]);
         }
         static void Main(string[] args)
         {
-            string[] tomb = new string[]{ "kő", "papír", "olló" };
+            
             Random rnd = new Random();
             int robotval = rnd.Next(0, 3);
-            
             Console.WriteLine("Válasszon: (1)Kő (2)Papír (3)Olló");
             int jatekosv = int.Parse(Console.ReadLine())-1;
-            Console.WriteLine("Játékos választása: {0}",tomb[jatekosv]);
-            /*switch (robotval+1)
-            {
-                case 1:
-                    if (jatekosv==1)
-                    {
-                        Console.WriteLine("Nyertél");
-
-                    }
-                    else if (jatekosv==2)
-                    {
-                        Console.WriteLine("Vesztettél");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Döntetlen");
-                    }
-                    ;break;
-                case 2:
-                    if (jatekosv == 2)
-                    {
-                        Console.WriteLine("Nyertél");
-
-                    }
-                    else if (jatekosv == 0)
-                    {
-                        Console.WriteLine("Vesztettél");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Döntetlen");
-                    }; break;
-                case 3:
-                    if (jatekosv == 0)
-                    {
-                        Console.WriteLine("Nyertél");
-
-                    }
-                    else if (jatekosv == 1)
-                    {
-                        Console.WriteLine("Vesztettél");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Döntetlen");
-                    }; break;
-                default:
-                    break;
-            }*/
+            
             kiír(robotval, jatekosv);
             Console.ReadKey();
         }
