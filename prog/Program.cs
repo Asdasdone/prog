@@ -35,14 +35,24 @@ namespace prog
             Console.WriteLine("Robot válasza \t Játékos válasza");
             Console.WriteLine("  {0} \t" + asd[embernyer(a, b)] + " \t{1}", tomb[a], tomb[b]);
         }
+        static int gép()
+        {
+            Random rnd = new Random();
+            int a = rnd.Next(0, 3);
+            return a;
+        }
+        static int választ()
+        {
+            Console.WriteLine("Válasszon: (1)Kő (2)Papír (3)Olló");
+            int a = int.Parse(Console.ReadLine())-1;
+            return a;
+        }
         static void Main(string[] args)
         {
             
-            Random rnd = new Random();
-            int robotval = rnd.Next(0, 3);
-            Console.WriteLine("Válasszon: (1)Kő (2)Papír (3)Olló");
-            int jatekosv = int.Parse(Console.ReadLine())-1;
             
+            int robotval = gép();
+            int jatekosv = választ();
             kiír(robotval, jatekosv);
             Console.ReadKey();
         }
