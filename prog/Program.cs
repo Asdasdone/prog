@@ -8,12 +8,31 @@ namespace prog
 {
     class Program
     {
+        static int embernyer(int a,int b)
+        {
+            //a=robot , b=ember
+            //0= döntetlen 1= gép nyert 2= ember nyert
+            int nyer = new int();
+            if (a == 0 && b == 1 || a == 1 && b == 2 || a == 2 && b == 0)
+            {
+                nyer = 2;
+            }
+            else if (a == b)
+            {
+                nyer = 0;
+            }
+            else
+            {
+                nyer = 1;
+            }
+            return nyer;
+        }
         static void Main(string[] args)
         {
             string[] tomb = new string[]{ "kő", "papír", "olló" };
             Random rnd = new Random();
             int robotval = rnd.Next(0, 3);
-            Console.WriteLine("Gép választása: {0}",tomb[robotval]);
+            
             Console.WriteLine("Válasszon: (1)Kő (2)Papír (3)Olló");
             int jatekosv = int.Parse(Console.ReadLine())-1;
             Console.WriteLine("Játékos választása: {0}",tomb[jatekosv]);
@@ -65,18 +84,9 @@ namespace prog
                 default:
                     break;
             }*/
-            if (robotval==0 && jatekosv==1 || robotval==1 && jatekosv==2 || robotval==2 && jatekosv==0)
-            {
-                Console.WriteLine("Nyertél");
-            }
-            else if (robotval==jatekosv)
-            {
-                Console.WriteLine("Döntetlen");
-            }
-            else
-            {
-                Console.WriteLine("Vesztettél");
-            }
+            string[] asd = new string[] { "Döntetlen", "Vesztettél", "Nyertél" };
+            Console.WriteLine("Robot válasza \t Játékos válasza");
+            Console.WriteLine("  {0} \t"+asd[embernyer(robotval,jatekosv)]+" \t{1}",tomb[robotval],tomb[jatekosv]);
             Console.ReadKey();
         }
     }
