@@ -6,5 +6,6 @@ kő papír olló
 ## kő->olló->papír->kő 
 ## kiírja az eredményt)
 ember nyer metódus
+metódus létrehozása
 
 

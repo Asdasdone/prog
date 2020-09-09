@@ -27,6 +27,13 @@ namespace prog
             }
             return nyer;
         }
+        static void kiír(int a,int b)
+        {
+            string[] asd = new string[] { "Döntetlen", "Vesztettél", "Nyertél" };
+            string[] tomb = new string[] { "kő", "papír", "olló" };
+            Console.WriteLine("Robot válasza \t Játékos válasza");
+            Console.WriteLine("  {0} \t" + asd[embernyer(a, b)] + " \t{1}", tomb[a], tomb[b]);
+        }
         static void Main(string[] args)
         {
             string[] tomb = new string[]{ "kő", "papír", "olló" };
@@ -84,9 +91,7 @@ namespace prog
                 default:
                     break;
             }*/
-            string[] asd = new string[] { "Döntetlen", "Vesztettél", "Nyertél" };
-            Console.WriteLine("Robot válasza \t Játékos válasza");
-            Console.WriteLine("  {0} \t"+asd[embernyer(robotval,jatekosv)]+" \t{1}",tomb[robotval],tomb[jatekosv]);
+            kiír(robotval, jatekosv);
             Console.ReadKey();
         }
     }
