@@ -17,7 +17,7 @@ namespace prog
             Console.WriteLine("Válasszon: (1)Kő (2)Papír (3)Olló");
             int jatekosv = int.Parse(Console.ReadLine())-1;
             Console.WriteLine("Játékos választása: {0}",tomb[jatekosv]);
-            switch (robotval+1)
+            /*switch (robotval+1)
             {
                 case 1:
                     if (jatekosv==1)
@@ -64,8 +64,19 @@ namespace prog
                     }; break;
                 default:
                     break;
+            }*/
+            if (robotval==0 && jatekosv==1 || robotval==1 && jatekosv==2 || robotval==2 && jatekosv==0)
+            {
+                Console.WriteLine("Nyertél");
             }
-
+            else if (robotval==jatekosv)
+            {
+                Console.WriteLine("Döntetlen");
+            }
+            else
+            {
+                Console.WriteLine("Vesztettél");
+            }
             Console.ReadKey();
         }
     }
