@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace prog
 {
@@ -52,9 +53,27 @@ namespace prog
             int a = int.Parse(Console.ReadLine())-1;
             return a;
         }
+        static void mentettstat()
+        {
+            Console.WriteLine("Körök\tJátékos    Gép ");
+            Console.WriteLine("száma\tnyerése    nyerése\n----------------------------");
+            StreamReader stat = new StreamReader("stat.txt");
+            while (!stat.EndOfStream)
+            {
+                string[] sor = stat.ReadLine().Split(' ');
+                for (int i = 0; i < sor.Length; i++)
+                {
+                    Console.Write(int.Parse(sor[i])+" \t   ");
+                }
+                Console.WriteLine("\n-----------------------");
+            }
+            stat.Close();
+            Console.WriteLine("-------------------------Mentett statisztika vége-------------------\n");
+        }
         static void Main(string[] args)
         {
             bool tovabb = true;
+            mentettstat();
 
             while (tovabb)
             {
