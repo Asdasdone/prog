@@ -49,12 +49,33 @@ namespace prog
         }
         static void Main(string[] args)
         {
+            bool tovabb = true;
+
+            while (tovabb)
+            {
+                int robotval = gép();
+                int jatekosv = választ();
+                kiír(robotval, jatekosv);
+                
+                tovabb = jatszik();
+                
+            }
+                    
+        }
+        static bool jatszik()
+        {
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("Akarsz játszani?[i/n]");
+            string valasz = Console.ReadLine().ToLower();
+            if (valasz=="i")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             
-            
-            int robotval = gép();
-            int jatekosv = választ();
-            kiír(robotval, jatekosv);
-            Console.ReadKey();
         }
     }
 }
