@@ -61,14 +61,17 @@ namespace prog
             while (!stat.EndOfStream)
             {
                 string[] sor = stat.ReadLine().Split(' ');
+                int[] val = new int[sor.Length];
                 for (int i = 0; i < sor.Length; i++)
                 {
-                    Console.Write(int.Parse(sor[i])+" \t   ");
+                    val[i] = int.Parse(sor[i]);
+                    Console.Write(val[i]+" \t   ");
                 }
                 Console.WriteLine("\n-----------------------");
             }
+            Console.WriteLine();
             stat.Close();
-            Console.WriteLine("-------------------------Mentett statisztika vége-------------------\n");
+            Console.WriteLine("----------------------------Mentett statisztika vége-------------------\n");
         }
         static void Main(string[] args)
         {
