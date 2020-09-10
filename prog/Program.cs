@@ -8,6 +8,9 @@ namespace prog
 {
     class Program
     {
+        static int gepnyer= 0;
+        static int jatekos = 0;
+        static int kor = 0;
         static string[] tomb = new string[] { "kő", "papír", "olló" };
         static int embernyer(int a,int b)
         {
@@ -16,6 +19,7 @@ namespace prog
             int nyer = new int();
             if (a == 0 && b == 1 || a == 1 && b == 2 || a == 2 && b == 0)
             {
+                jatekos++;
                 nyer = 2;
             }
             else if (a == b)
@@ -24,6 +28,7 @@ namespace prog
             }
             else
             {
+                gepnyer++;
                 nyer = 1;
             }
             return nyer;
@@ -53,14 +58,35 @@ namespace prog
 
             while (tovabb)
             {
+                kor++;
                 int robotval = gép();
                 int jatekosv = választ();
                 kiír(robotval, jatekosv);
                 
                 tovabb = jatszik();
+                Console.Clear();
                 
             }
+            statisztika();
+            Console.ReadKey();
                     
+        }
+        static void statisztika()
+        {
+            if (jatekos>gepnyer)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Győzedelmes voltál");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("A gép volt a győzedelmes");
+            }
+            Console.WriteLine("Körök száma: {0}",kor);
+            Console.WriteLine("Győzelmed: {0} ({1}%)",jatekos,Convert.ToDouble(jatekos)/kor*100);
+            Console.WriteLine("Gép győzelme: {0} ({1}%)", jatekos, Convert.ToDouble(gepnyer) / kor * 100);
+
         }
         static bool jatszik()
         {
