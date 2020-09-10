@@ -60,7 +60,7 @@ namespace prog
             StreamReader stat = new StreamReader("stat.txt");
             while (!stat.EndOfStream)
             {
-                string[] sor = stat.ReadLine().Split(' ');
+                string[] sor = stat.ReadLine().Split(';');
                 int[] val = new int[sor.Length];
                 for (int i = 0; i < sor.Length; i++)
                 {
@@ -72,6 +72,12 @@ namespace prog
             Console.WriteLine();
             stat.Close();
             Console.WriteLine("----------------------------Mentett statisztika vége-------------------\n");
+        }
+        static void ir ()
+        {
+            StreamWriter ir = new StreamWriter("stat.txt",true);
+            ir.WriteLine("{0};{1};{2}",kor,jatekos,gepnyer);
+            ir.Close();
         }
         static void Main(string[] args)
         {
@@ -90,6 +96,7 @@ namespace prog
                 
             }
             statisztika();
+            ir();
             Console.ReadKey();
                     
         }
