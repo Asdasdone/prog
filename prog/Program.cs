@@ -85,12 +85,12 @@ namespace prog
             }
             Console.WriteLine("Körök száma: {0}",kor);
             Console.WriteLine("Győzelmed: {0} ({1}%)",jatekos,Convert.ToDouble(jatekos)/kor*100);
-            Console.WriteLine("Gép győzelme: {0} ({1}%)", jatekos, Convert.ToDouble(gepnyer) / kor * 100);
+            Console.WriteLine("Gép győzelme: {0} ({1}%)", gepnyer, Convert.ToDouble(gepnyer) / kor * 100);
 
         }
         static bool jatszik()
         {
-            Console.WriteLine("-------------------------------------");
+            
             Console.WriteLine("Akarsz játszani?[i/n]");
             string valasz = Console.ReadLine().ToLower();
             if (valasz=="i")
