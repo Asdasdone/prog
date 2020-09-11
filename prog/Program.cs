@@ -55,19 +55,20 @@ namespace prog
         }
         static void mentettstat()
         {
-            Console.WriteLine("Körök\tJátékos    Gép ");
-            Console.WriteLine("száma\tnyerése    nyerése\n----------------------------");
+            Console.WriteLine("Körök\tJátékos     Gép ");
+            Console.WriteLine("száma\tnyerése   nyerése\n----------------------------");
             StreamReader stat = new StreamReader("stat.txt");
             while (!stat.EndOfStream)
             {
                 string[] sor = stat.ReadLine().Split(';');
                 int[] val = new int[sor.Length];
+
                 for (int i = 0; i < sor.Length; i++)
                 {
                     val[i] = int.Parse(sor[i]);
-                    Console.Write(val[i]+" \t   ");
+                    Console.Write("|{0,2}",val[i]+"| \t   ");
                 }
-                Console.WriteLine("\n-----------------------");
+                Console.WriteLine("\n----------------------------");
             }
             Console.WriteLine();
             stat.Close();
@@ -83,16 +84,17 @@ namespace prog
         {
             bool tovabb = true;
             mentettstat();
-
+            Console.ReadKey();
             while (tovabb)
             {
+                Console.Clear();
                 kor++;
                 int robotval = gép();
                 int jatekosv = választ();
                 kiír(robotval, jatekosv);
                 
                 tovabb = jatszik();
-                Console.Clear();
+               
                 
             }
             statisztika();
